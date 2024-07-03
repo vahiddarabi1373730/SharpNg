@@ -1,0 +1,21 @@
+<ng-container [formGroup]="form">
+  <span class="c-label">
+    <ng-container *ngIf="config.validators">
+              <ng-container *ngFor="let validation of Object.keys(config.validators)">
+          <span class="e-required" *ngIf="validation==='required'">*</span>
+              </ng-container>
+        </ng-container>
+  <span class="e-label">{{config.label}}</span>
+</span>
+  <mat-form-field class="o-formField " appearance="outline">
+    <input
+      [type]="config.inputType"
+      [formControlName]="config.name"
+      [defaultValue]="config.defaultValue"
+      matInput
+    >
+    <button *ngIf="!config.hideClearIcon" (click)="onIconClick()" matSuffix mat-icon-button>
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+</ng-container>

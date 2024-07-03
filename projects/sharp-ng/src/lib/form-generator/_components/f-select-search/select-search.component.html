@@ -1,0 +1,9 @@
+<ng-container [formGroup]="form">
+    <label>{{config.label}}</label>
+    <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-select [formControlName]="config.name"
+                    [value]="config.defaultValue || form.controls.value">
+            <mat-option *ngFor="let option of options" [value]="option.key">{{option.value}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</ng-container>

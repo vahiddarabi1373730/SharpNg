@@ -1,0 +1,3 @@
+<ng-container *ngFor="let error of errors | keyvalue">
+  <span class="e-error">{{messages[error.key](error.value)}}</span>
+</ng-container>

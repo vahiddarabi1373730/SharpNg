@@ -1,0 +1,24 @@
+<div [formGroup]="form" class="o-container">
+    <ng-container *ngFor="let config of config.controls">
+        <div class="c-control" [ngClass]="config.controlClass" [ngStyle]="config.controlStyle">
+            <ng-container
+                    *ngComponentOutlet="setControlComponentService.resolve(config.controlType)
+      ;injector:config | controlInjector">
+            </ng-container>
+            <app-validation-errors
+                    [errors]=" form.controls[config.name].errors"
+                    *ngIf="config.controlType!=='f-group' && form.controls[config.name].dirty && form.controls[config.name].touched">
+            </app-validation-errors>
+        </div>
+    </ng-container>
+    <ng-content></ng-content>
+</div>
+<button *ngIf="config.hasSubmitButton"
+        [disabled]="form.invalid"
+        (click)="onSubmit()"
+        mat-button
+        mat-raised-button
+        color="primary"
+        class="e-submit"
+>{{config?.titleButton}}</button>
+

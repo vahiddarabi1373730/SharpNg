@@ -1,0 +1,23 @@
+:host {
+  & ::ng-deep {
+    mat-checkbox .mat-checkbox-layout {
+      transform: translateY(23%);
+    }
+
+    mat-checkbox .mat-checkbox-inner-container {
+      margin-left: 2px;
+    }
+  }
+
+
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  margin-top: 12px;
+
+  & span {
+    color: #545454;
+    font-size: 10px;
+    font-weight: 400;
+  }
+}

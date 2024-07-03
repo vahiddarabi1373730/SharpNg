@@ -1,0 +1,4 @@
+<ng-container [formGroup]="form">
+  <label>{{config.label}}</label>
+  <span>{{form.controls[config.name].value ? form.controls[config.name].value : config.placeholder}}</span>
+</ng-container>

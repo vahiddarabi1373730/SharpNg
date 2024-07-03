@@ -1,0 +1,28 @@
+<ng-container [formGroup]="form">
+  <label>{{config.label}}</label>
+  <ng-container *ngFor="let levelOne of config.menuOptions">
+    <button class="e-item e-levelOne" mat-menu-item
+            [matMenuTriggerFor]="levelTowTrigger">{{levelOne.value}}</button>
+    <mat-menu #levelTowTrigger="matMenu" xPosition="after">
+      <ng-container *ngFor="let levelTow of levelOne.children">
+        <ng-container *ngIf="levelTow.children">
+          <button class="e-item" mat-menu-item
+                  [matMenuTriggerFor]="levelTreeTrigger">{{ levelTow.value}}
+          </button>
+          <mat-menu #levelTreeTrigger="matMenu" xPosition="after">
+            <button [value]="levelTree.key"
+                    (click)="onClosed($any($event.target).value)"
+                    class="e-item"
+                    *ngFor="let levelTree of levelTow.children"
+                    mat-menu-item>{{ levelTree.value }}
+            </button>
+          </mat-menu>
+        </ng-container>
+        <ng-container *ngIf="!levelTow.children">
+          <button class="e-item" mat-menu-item [value]="levelTow.key"
+                  (click)="onClosed($any($event.target).value)">{{ levelTow.value}}</button>
+        </ng-container>
+      </ng-container>
+    </mat-menu>
+  </ng-container>
+</ng-container>

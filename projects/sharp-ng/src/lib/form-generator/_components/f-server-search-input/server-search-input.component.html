@@ -1,0 +1,24 @@
+<span class="c-label">
+  <ng-container *ngFor="let validation of config.validation">
+  <span class="e-required" *ngIf="validation===Validators.required">*</span>
+  </ng-container>
+  <span class="e-label">{{config.label}}</span>
+</span>
+<mat-form-field class="o-formField " appearance="outline">
+  <input
+    [type]="config.inputType"
+    [placeholder]="config.defaultValue? config.defaultValue : config.label"
+    [formControl]="formControl"
+    [matAutocomplete]="auto"
+    matInput
+    class="example-input">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let item of result" [value]="item.value">{{item.value}}</mat-option>
+  </mat-autocomplete>
+  <button (click)="onIconClick()" matSuffix mat-icon-button>
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-form-field>
+<app-validation-errors [fControl]="formControl"></app-validation-errors>
+
+

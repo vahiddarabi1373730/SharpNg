@@ -1,0 +1,10 @@
+<ng-container [formGroup]="form">
+  <fieldset [formGroupName]="config.name" class="form-field-group">
+    <ng-container *ngFor="let config of config.controls">
+      <ng-container
+        *ngComponentOutlet="setControlComponentService.resolve(config.controlType);injector:config | controlInjector">
+      </ng-container>
+    </ng-container>
+    <app-button class="c-deleteFormGroup" *ngIf="config.hasDeleteFormGroup" [button]="button"></app-button>
+  </fieldset>
+</ng-container>

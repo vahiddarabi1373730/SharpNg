@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -95,9 +96,43 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "SharpNg": {
+      "projectType": "library",
+      "root": "projects/sharp-ng",
+      "sourceRoot": "projects/sharp-ng/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/sharp-ng/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sharp-ng/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/sharp-ng/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/sharp-ng/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

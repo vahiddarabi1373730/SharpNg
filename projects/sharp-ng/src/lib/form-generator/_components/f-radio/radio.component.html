@@ -1,0 +1,9 @@
+<ng-container [formGroup]="form">
+    <label>{{config.label}}</label>
+    <div class="radioContainer">
+        <mat-radio-group [formControlName]="config.name">
+            <mat-radio-button *ngFor="let radio of config.configRadio"
+                              [value]="radio.key">{{radio.value}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+</ng-container>

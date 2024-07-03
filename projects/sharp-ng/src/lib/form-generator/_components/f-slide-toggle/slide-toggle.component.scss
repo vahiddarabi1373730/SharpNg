@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  margin-top: 12px;
+
+  & label {
+    margin-bottom: 0;
+    color: #545454;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

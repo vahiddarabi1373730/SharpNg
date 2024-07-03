@@ -1,0 +1,41 @@
+:host {
+  width: calc(49%);
+  display: block;
+
+  & ::ng-deep {
+    .mat-form-field-wrapper {
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+
+.o-formField {
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+}
+
+.c-label {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+
+  & .e-label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  & .e-required {
+    transform: translateY(40%);
+    font-size: 25px;
+    color: red;
+  }
+}
+
+.e-requiredText {
+  font-size: 12px;
+  color: red;
+}

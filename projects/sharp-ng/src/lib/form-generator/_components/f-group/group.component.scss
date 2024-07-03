@@ -1,0 +1,16 @@
+:host {
+  .form-field-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+
+    & .c-deleteFormGroup {
+      position: absolute;
+      left: -1.5%;
+      top: 25%;
+
+    }
+  }
+
+}
